@@ -34,8 +34,8 @@ class Img_list:
         files = list(map(lambda x:os.path.join(path, x),files))
         files = sorted(files,key = lambda x : os.path.getatime(x))
         for file in files:
-            name = file.split('/')[-1].split('.')[0]
-            #Windows下前一行改为name = file.split('\\')[-1].split('.')[0]
+            # name = file.split('/')[-1].split('.')[0]
+            name = file.split('\\')[-1].split('.')[0]
             img = Image.open(file).convert('L')
             if img.size[0] < img.size[1] and self.transpose_bool:
                 img = img.transpose(Image.ROTATE_90)
